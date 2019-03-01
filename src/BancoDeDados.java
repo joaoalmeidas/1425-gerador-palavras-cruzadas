@@ -102,11 +102,14 @@ public class BancoDeDados {
 				while(this.resultset.next()) {
 					
 					dicas[i][0] = palavras[i][0];
-					dicas[i][1] = this.resultset.getString("xml").substring(this.resultset.getString("xml").indexOf("<def>") + 5,
-							this.resultset.getString("xml").indexOf("</def>"));
+					dicas[i][1] = this.resultset.getString("xml");
+					dicas[i][1] = dicas[i][1].substring(dicas[i][1].indexOf("<def>"));
 					
-					
-					
+					do {
+						
+						dicas[i][1] = dicas[i][1].replace(dicas[i][1].substring(dicas[i][1].indexOf("<"), dicas[i][1].indexOf(">") + 1), "");
+						
+					}while(dicas[i][1].contains("<") && dicas[i][1].contains(">"));
 					
 					dicas[i][1] = dicas[i][1].replace("\n", " ");
 					dicas[i][1] = dicas[i][1].replace("_", "\"");
