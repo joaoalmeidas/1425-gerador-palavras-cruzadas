@@ -4,19 +4,34 @@ public class Teste {
 	public static void main(String[] args) {
 		
 		BancoDeDados banco = new BancoDeDados();
-		String[][] palavras = banco.selecionaPalavras();
+		String[][] palavras;
 		
-		for(int i = 0 ; i < palavras.length; i++) {
+		banco.conectar();
+		
+		if(banco.estaConectado()) {
 			
-			for(int j = 0; j <  palavras[i].length; j++) {
+			palavras = banco.selecionaPalavras();
+			/*
+			for(int i = 0; i < palavras.length; i++) {
 				
-				System.out.printf("%s", palavras[i][j]);
+				for(int j = 0; j < palavras[0].length; j++) {
+					
+					System.out.printf("%s ", palavras[i][j]);
+					
+				}
+				
+				System.out.println();
 				
 			}
+			*/
+			banco.desconectar();
 			
-			System.out.println();
+		}else {
+			
+			System.out.println("Não foi possível conectar com o banco.");
 			
 		}
+		
 	}
 
 }

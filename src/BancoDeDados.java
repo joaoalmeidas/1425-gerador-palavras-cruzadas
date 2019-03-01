@@ -55,23 +55,24 @@ public class BancoDeDados {
 			this.statement = this.connection.createStatement();
 			
 			while(this.resultset.next()) {
-				System.out.println("id: " + this.resultset.getString("word_id") + " Palavra: " + this.resultset.getString("word"));
+				//System.out.println("id: " + this.resultset.getString("word_id") + " Palavra: " + this.resultset.getString("word"));
 				palavras = new String[this.resultset.getString("word").length() + 1][2];
 				palavras[0][0] = this.resultset.getString("word_id");
 				palavras[0][1] = this.resultset.getString("word");
+				System.out.println(palavras[0][1]);
 			}
 			
-			for(int i = 1; i < palavras[0][1].length(); i++) {
+			for(int i = 1; i < palavras.length; i++) {
 				
-				query = "SELECT * FROM word WHERE character_length(word) <= 10 && WORD LIKE '%" + palavras[0][1].charAt(i) +"%' ORDER BY RAND() LIMIT 1;";
+				query = "SELECT * FROM word WHERE character_length(word) <= 10 && WORD LIKE '%" + palavras[0][1].charAt(i - 1) +"%' ORDER BY RAND() LIMIT 1;";
 				this.resultset = this.statement.executeQuery(query);
 				this.statement = this.connection.createStatement();
 				
 				while(this.resultset.next()) {
-					System.out.println("id: " + this.resultset.getString("word_id") + " Palavra: " + this.resultset.getString("word"));
-					palavras = new String[this.resultset.getString("word").length() + 1][2];
+					//System.out.println("id: " + this.resultset.getString("word_id") + " Palavra: " + this.resultset.getString("word"));
 					palavras[i][0] = this.resultset.getString("word_id");
 					palavras[i][1] = this.resultset.getString("word");
+					System.out.println(palavras[i][1]);
 				}
 				
 			}
