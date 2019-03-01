@@ -55,11 +55,11 @@ public class BancoDeDados {
 			this.statement = this.connection.createStatement();
 			
 			while(this.resultset.next()) {
-				//System.out.println("id: " + this.resultset.getString("word_id") + " Palavra: " + this.resultset.getString("word"));
+
 				palavras = new String[this.resultset.getString("word").length() + 1][2];
 				palavras[0][0] = this.resultset.getString("word_id");
 				palavras[0][1] = this.resultset.getString("word");
-				System.out.println(palavras[0][1]);
+
 			}
 			
 			for(int i = 1; i < palavras.length; i++) {
@@ -69,10 +69,10 @@ public class BancoDeDados {
 				this.statement = this.connection.createStatement();
 				
 				while(this.resultset.next()) {
-					//System.out.println("id: " + this.resultset.getString("word_id") + " Palavra: " + this.resultset.getString("word"));
+					
 					palavras[i][0] = this.resultset.getString("word_id");
 					palavras[i][1] = this.resultset.getString("word");
-					System.out.println(palavras[i][1]);
+					
 				}
 				
 			}
@@ -84,6 +84,48 @@ public class BancoDeDados {
 		}
 		
 		return palavras;
+		
+	}
+	
+	public String[][] selecionaDicas(String[][] palavras){
+		
+		String[][] dicas = new String[palavras.length][palavras[0].length];
+		
+		try {
+			
+			for(int i = 0; i < palavras.length; i++) {
+				
+				String query = "SELECT * FROM revision WHERE word_id = " + palavras[i][0];
+				this.resultset = this.statement.executeQuery(query);
+				this.statement = this.connection.createStatement();
+				
+				while(this.resultset.next()) {
+					
+					dicas[i][0] = palavras[i][0];
+					dicas[i][1] = this.resultset.getString("xml").substring(this.resultset.getString("xml").indexOf("<def>") + 5,
+							this.resultset.getString("xml").indexOf("</def>"));
+					
+					if(dicas[i][1].contains(">")) {
+						
+						dicas[i][1] = dicas[i][1].substring(dicas[i][1].indexOf(">" + 1), dicas[i][1].indexOf("<")) ;
+						
+					}
+					
+					dicas[i][1] = dicas[i][1].replace("\n", " ");
+					dicas[i][1] = dicas[i][1].replace("_", "\"");
+					
+				}
+				
+			}
+			
+			
+		}catch(Exception e) {
+			
+			System.out.println("Erro: " + e.getMessage());
+			
+		}
+		
+		return dicas;
 		
 	}
 	

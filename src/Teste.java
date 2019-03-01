@@ -5,25 +5,28 @@ public class Teste {
 		
 		BancoDeDados banco = new BancoDeDados();
 		String[][] palavras;
+		String[][] dicas;
 		
 		banco.conectar();
 		
 		if(banco.estaConectado()) {
 			
 			palavras = banco.selecionaPalavras();
-			/*
+			dicas = banco.selecionaDicas(palavras);
+			
 			for(int i = 0; i < palavras.length; i++) {
 				
 				for(int j = 0; j < palavras[0].length; j++) {
 					
 					System.out.printf("%s ", palavras[i][j]);
+					System.out.printf("%s ", dicas[i][j]);
 					
 				}
 				
 				System.out.println();
 				
 			}
-			*/
+			
 			banco.desconectar();
 			
 		}else {
