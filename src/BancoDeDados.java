@@ -105,11 +105,8 @@ public class BancoDeDados {
 					dicas[i][1] = this.resultset.getString("xml").substring(this.resultset.getString("xml").indexOf("<def>") + 5,
 							this.resultset.getString("xml").indexOf("</def>"));
 					
-					if(dicas[i][1].contains(">")) {
-						
-						dicas[i][1] = dicas[i][1].substring(dicas[i][1].indexOf(">" + 1), dicas[i][1].indexOf("<")) ;
-						
-					}
+					
+					
 					
 					dicas[i][1] = dicas[i][1].replace("\n", " ");
 					dicas[i][1] = dicas[i][1].replace("_", "\"");
