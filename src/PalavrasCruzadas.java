@@ -17,11 +17,9 @@ public class PalavrasCruzadas {
 		
 		dicas = banco.selecionaDicas(palavras);
 		
-		System.out.println(palavraCentral);
 		
 		for(int i = 0; i < palavraCentral.length(); i++) {
 			
-			System.out.println(palavras[i+1][1]);
 			
 			if(palavras[i+1][1].substring(0, palavras[i+1][1].lastIndexOf(palavraCentral.charAt(i))).length() > esquerda) {
 				
@@ -39,7 +37,6 @@ public class PalavrasCruzadas {
 		
 		quadriculado = new char[palavraCentral.length()][esquerda + direita];
 		
-		System.out.println(esquerda);
 		
 		for(int i = 0; i < palavraCentral.length(); i++) {
 			
@@ -47,9 +44,23 @@ public class PalavrasCruzadas {
 			
 		}
 		
-		for(int i = 1; i < palavras.length; i++) {
+		for(int i = 0; i < palavraCentral.length(); i++) {
+			
+			String stringEsquerda = palavras[i+1][1].substring(0, palavras[i+1][1].lastIndexOf(palavraCentral.charAt(i)));
+			String stringDireita = palavras[i+1][1].substring(palavras[i+1][1].lastIndexOf(palavraCentral.charAt(i)), palavras[i+1][1].length());
 			
 			
+			for(int j = esquerda, k = palavras[i+1][1].lastIndexOf(palavraCentral.charAt(i)); j >= esquerda - stringEsquerda.length(); j--, k--) {
+				
+				quadriculado[i][j] = palavras[i+1][1].charAt(k);
+				
+			}
+			
+			for(int j = esquerda, k = palavras[i+1][1].lastIndexOf(palavraCentral.charAt(i)); j < esquerda + stringDireita.length(); j++, k++) {
+				
+				quadriculado[i][j] = palavras[i+1][1].charAt(k);
+				
+			}
 			
 		}
 		
