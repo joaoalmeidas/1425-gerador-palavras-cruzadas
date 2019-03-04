@@ -79,6 +79,36 @@ public class PalavrasCruzadas {
 		banco.desconectar();
 
 	}
+
+
+	public BancoDeDados getBanco() {
+		return banco;
+	}
+
+
+	public void setBanco(BancoDeDados banco) {
+		this.banco = banco;
+	}
+
+
+	public char[][] getQuadriculado() {
+		return quadriculado;
+	}
+
+
+	public void setQuadriculado(char[][] quadriculado) {
+		this.quadriculado = quadriculado;
+	}
+
+
+	public String[][] getDicas() {
+		return dicas;
+	}
+
+
+	public void setDicas(String[][] dicas) {
+		this.dicas = dicas;
+	}
 	
 	
 	
