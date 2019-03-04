@@ -36,7 +36,7 @@ public class PalavrasCruzadas {
 				
 		}
 		
-		indicePalavraCentral = esquerda;
+		indicePalavraCentral = esquerda + 1;
 		System.out.println(indicePalavraCentral);
 		
 		quadriculado = new char[palavraCentral.length()][esquerda + direita];
@@ -113,6 +113,17 @@ public class PalavrasCruzadas {
 	public void setDicas(String[][] dicas) {
 		this.dicas = dicas;
 	}
+
+
+	public int getIndicePalavraCentral() {
+		return indicePalavraCentral;
+	}
+
+
+	public void setIndicePalavraCentral(int indicePalavraCentral) {
+		this.indicePalavraCentral = indicePalavraCentral;
+	}
+	
 	
 	
 	
