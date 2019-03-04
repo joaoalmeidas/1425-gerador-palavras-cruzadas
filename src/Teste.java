@@ -1,10 +1,13 @@
+import javax.swing.JFrame;
 
 public class Teste {
 
 	public static void main(String[] args) {
 		
-		PalavrasCruzadas palavras = new PalavrasCruzadas();
-		
+		PalavrasCruzadasFrame frame = new PalavrasCruzadasFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setSize(1000, 700);
 		
 		
 	}
