@@ -16,18 +16,17 @@ public class PalavrasCruzadasPanel extends JPanel {
 		palavraCruzada = new PalavrasCruzadas();
 		quadriculado = new JTextField[palavraCruzada.getQuadriculado().length][palavraCruzada.getQuadriculado()[0].length];
 		
-		GridLayout layout = new GridLayout(palavraCruzada.getQuadriculado().length + 1, palavraCruzada.getQuadriculado()[0].length + 1);
+		GridLayout layout = new GridLayout(palavraCruzada.getQuadriculado().length, palavraCruzada.getQuadriculado()[0].length);
 		setLayout(layout);
 		
-		for(int i = 1; i < palavraCruzada.getQuadriculado().length; i++) {
+		for(int i = 0; i < palavraCruzada.getQuadriculado().length; i++) {
 			
-			for(int j = 1; j < palavraCruzada.getQuadriculado()[0].length; j++) {
+			for(int j = 0; j < palavraCruzada.getQuadriculado()[0].length; j++) {
 				
-				if(Character.isLetterOrDigit(palavraCruzada.getQuadriculado()[i-1][j-1])) {
+				if(Character.isLetterOrDigit(palavraCruzada.getQuadriculado()[i][j])) {
 					
 					quadriculado[i][j] = new JTextField(1);
 					add(quadriculado[i][j]);
-					
 					
 				}else {
 					

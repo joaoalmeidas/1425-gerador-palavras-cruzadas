@@ -4,6 +4,7 @@ public class PalavrasCruzadas {
 	private BancoDeDados banco = new BancoDeDados();
 	private char[][] quadriculado;
 	private String[][] dicas;
+	private int indicePalavraCentral;
 	
 	
 	public PalavrasCruzadas() {
@@ -13,13 +14,13 @@ public class PalavrasCruzadas {
 		String[][] palavras = banco.selecionaPalavras();
 		String palavraCentral = palavras[0][1];
 		
+		
+		
 		int esquerda = 0, direita = 0;
 		
 		dicas = banco.selecionaDicas(palavras);
 		
-		
 		for(int i = 0; i < palavraCentral.length(); i++) {
-			
 			
 			if(palavras[i+1][1].substring(0, palavras[i+1][1].lastIndexOf(palavraCentral.charAt(i))).length() > esquerda) {
 				
@@ -34,6 +35,9 @@ public class PalavrasCruzadas {
 			}
 				
 		}
+		
+		indicePalavraCentral = esquerda;
+		System.out.println(indicePalavraCentral);
 		
 		quadriculado = new char[palavraCentral.length()][esquerda + direita];
 		
