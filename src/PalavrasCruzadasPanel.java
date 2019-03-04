@@ -56,5 +56,23 @@ public class PalavrasCruzadasPanel extends JPanel {
 		}
 		
 	}
+
+	public PalavrasCruzadas getPalavraCruzada() {
+		return palavraCruzada;
+	}
+
+	public void setPalavraCruzada(PalavrasCruzadas palavraCruzada) {
+		this.palavraCruzada = palavraCruzada;
+	}
+
+	public JTextField[][] getQuadriculado() {
+		return quadriculado;
+	}
+
+	public void setQuadriculado(JTextField[][] quadriculado) {
+		this.quadriculado = quadriculado;
+	}
+	
+	
 	
 }
