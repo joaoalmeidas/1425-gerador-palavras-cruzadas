@@ -122,10 +122,10 @@ public class PalavrasCruzadasPanel extends JPanel {
 		public void keyPressed(KeyEvent arg0) {
 			
 			//limita os caracteres
-			quadriculado[i][j].setText("");
-			if(!quadriculado[i][j].getText().equals("")) {
+			getQuadriculado()[i][j].setText("");
+			if(!getQuadriculado()[i][j].getText().equals("")) {
 				
-				quadriculado[i][j].setText(Character.toString(quadriculado[i][j].getText().charAt(0)));
+				getQuadriculado()[i][j].setText(Character.toString(getQuadriculado()[i][j].getText().charAt(0)));
 				
 			}
 			
@@ -139,7 +139,7 @@ public class PalavrasCruzadasPanel extends JPanel {
 			
 			if(!quadriculado[i][j].getText().equals("")) {
 				
-				getRespostaQuadriculado()[i][j] = quadriculado[i][j].getText().charAt(0);
+				getRespostaQuadriculado()[i][j] = getQuadriculado()[i][j].getText().charAt(0);
 				System.out.println(getRespostaQuadriculado()[i][j]);
 				
 			}

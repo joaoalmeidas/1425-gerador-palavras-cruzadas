@@ -124,7 +124,25 @@ public class PalavrasCruzadas {
 		this.indicePalavraCentral = indicePalavraCentral;
 	}
 	
-	
+	public boolean ganhouJogo(char[][] charJogo) {
+		
+		for(int i = 0; i < getQuadriculado().length; i++) {
+			
+			for(int j = 0; j < getQuadriculado()[i].length; j++) {
+				
+				if(getQuadriculado()[i][j] != charJogo[i][j]) {
+					
+					return false;
+					
+				}
+				
+			}
+			
+		}
+		
+		return true;
+		
+	}
 	
 	
 }
