@@ -64,6 +64,12 @@ public class PalavrasCruzadasPanel extends JPanel {
 			
 		}
 		
+		for(int i = 0; i < botoesDicas.length; i++) {
+			
+			botoesDicas[i].addActionListener(new DicasHandler(i, palavraCruzada.getDicas()[i][1]));
+			
+		}
+		
 		
 		
 	}
