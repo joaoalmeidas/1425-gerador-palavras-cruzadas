@@ -1,6 +1,9 @@
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -52,6 +55,10 @@ public class PalavrasCruzadasPanel extends JPanel {
 						|| palavraCruzada.getQuadriculado()[i][j] == '-') {
 					
 					quadriculado[i][j] = new JTextField(1);
+					quadriculado[i][j].setFont(new Font("Arial", Font.BOLD, 45));
+					
+					
+					
 					add(quadriculado[i][j]);
 					
 				}else {
