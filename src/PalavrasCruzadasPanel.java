@@ -40,7 +40,8 @@ public class PalavrasCruzadasPanel extends JPanel {
 			
 			for(int j = 0; j < quadriculado[0].length; j++) {
 				
-				if(Character.isLetterOrDigit(palavraCruzada.getQuadriculado()[i][j])) {
+				if(Character.isLetterOrDigit(palavraCruzada.getQuadriculado()[i][j]) || palavraCruzada.getQuadriculado()[i][j] == '.' 
+						|| palavraCruzada.getQuadriculado()[i][j] == '-') {
 					
 					quadriculado[i][j] = new JTextField(1);
 					add(quadriculado[i][j]);
