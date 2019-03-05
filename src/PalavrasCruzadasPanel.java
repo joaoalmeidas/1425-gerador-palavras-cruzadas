@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -128,13 +129,29 @@ public class PalavrasCruzadasPanel extends JPanel {
 				
 			}
 			
+
+			
 			
 		}
 
 		@Override
 		public void keyReleased(KeyEvent arg0) {
 			
-
+			if(!quadriculado[i][j].getText().equals("")) {
+				
+				getRespostaQuadriculado()[i][j] = quadriculado[i][j].getText().charAt(0);
+				System.out.println(getRespostaQuadriculado()[i][j]);
+				
+			}
+			
+			if(getRespostaQuadriculado()[i][j] == palavraCruzada.getQuadriculado()[i][j]) {
+				
+				getQuadriculado()[i][j].setEditable(false);
+				getQuadriculado()[i][j].setFocusable(false);
+				getQuadriculado()[i][j].setBackground(Color.GREEN);
+				getQuadriculado()[i][j].setForeground(Color.WHITE);
+				
+			}
 			
 		}
 
