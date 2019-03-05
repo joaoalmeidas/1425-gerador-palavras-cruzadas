@@ -1,7 +1,10 @@
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -61,7 +64,33 @@ public class PalavrasCruzadasPanel extends JPanel {
 			
 		}
 		
+		
+		
 	}
+		
+	private class DicasHandler implements ActionListener{
+		
+		private int i;
+		private String dica;
+		
+		public DicasHandler(int i, String dica) {
+			
+			this.i = i;
+			this.dica = dica;
+			
+		}
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			JOptionPane.showMessageDialog(null, dica, String.format("Dica %d", i+1), JOptionPane.INFORMATION_MESSAGE);
+			
+		}
+		
+		
+		
+	}
+
 
 	public PalavrasCruzadas getPalavraCruzada() {
 		return palavraCruzada;
@@ -82,3 +111,4 @@ public class PalavrasCruzadasPanel extends JPanel {
 	
 	
 }
+
