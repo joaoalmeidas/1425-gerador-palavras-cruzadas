@@ -1,6 +1,6 @@
-import java.awt.Color;
 import java.awt.GridLayout;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -9,6 +9,7 @@ public class PalavrasCruzadasPanel extends JPanel {
 
 	private PalavrasCruzadas palavraCruzada;
 	private JTextField[][] quadriculado;
+	private JButton[] botoesDicas;
 	
 	public PalavrasCruzadasPanel() {
 		
@@ -16,6 +17,7 @@ public class PalavrasCruzadasPanel extends JPanel {
 		
 		palavraCruzada = new PalavrasCruzadas();
 		quadriculado = new JTextField[palavraCruzada.getQuadriculado().length][palavraCruzada.getQuadriculado()[0].length];
+		botoesDicas = new JButton[palavraCruzada.getDicas().length];
 		
 		GridLayout layout = new GridLayout(palavraCruzada.getQuadriculado().length + 1, palavraCruzada.getQuadriculado()[0].length + 1);
 		setLayout(layout);
@@ -24,7 +26,8 @@ public class PalavrasCruzadasPanel extends JPanel {
 			
 			if(i == palavraCruzada.getIndicePalavraCentral()) {
 				
-				add(new JLabel("1"));
+				botoesDicas[0] = new JButton("1");
+				add(botoesDicas[0]);
 				
 			}else {
 				
@@ -36,7 +39,9 @@ public class PalavrasCruzadasPanel extends JPanel {
 		
 		for(int i = 0; i < quadriculado.length; i++) {
 			
-			add(new JLabel(String.format("%d", i + 2)));
+			
+			botoesDicas[i+1] = new JButton(String.format("%d", i+2));
+			add(botoesDicas[i+1]);
 			
 			for(int j = 0; j < quadriculado[0].length; j++) {
 				
