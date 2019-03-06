@@ -80,8 +80,44 @@ public class PalavrasCruzadasFrame extends JFrame {
 				
 				palavrasPanel = new PalavrasCruzadasPanel();
 				
-				add(palavrasPanel);
+				for(int i = 0; i < palavrasPanel.getQuadriculado().length; i++) {
+					
+					for(int j = 0; j < palavrasPanel.getQuadriculado()[i].length; j++) {
+						
+						if(palavrasPanel.getQuadriculado()[i][j] != null) {
+							
+							palavrasPanel.getQuadriculado()[i][j].addFocusListener(new FocusAdapter() {
+
+								@Override
+								public void focusLost(FocusEvent arg0) {
+									
+									if(palavrasPanel.getPalavraCruzada().ganhouJogo(palavrasPanel.getRespostaQuadriculado())) {
+										
+										System.out.println("sim");
+										
+										botoesPanel.add(botaoReiniciar);
+										
+										validate();
+										palavrasPanel.repaint();
+										repaint();
+										
+									}else {
+										
+										System.out.println("não");
+										
+									}
+									
+								}
+														
+							});				
+							
+						}
+						
+					}
+					
+				}
 				
+				add(palavrasPanel);
 				botoesPanel.remove(botaoReiniciar);
 				
 				validate();
@@ -109,42 +145,21 @@ public class PalavrasCruzadasFrame extends JFrame {
 								System.out.println("sim");
 								
 								botoesPanel.add(botaoReiniciar);
-								botoesPanel.remove(botaoIniciar);
 								
 								validate();
 								palavrasPanel.repaint();
 								repaint();
+								
+							}else {
+								
+								System.out.println("não");
 								
 							}
 							
 						}
 												
 					});				
-					/*
-					palavrasPanel.getQuadriculado()[i][j].addKeyListener(new KeyListener() {
-
-						@Override
-						public void keyPressed(KeyEvent arg0) {
-							System.out.println("tesre");
-							
-						}
-
-						@Override
-						public void keyReleased(KeyEvent arg0) {
-							// TODO Auto-generated method stub
-							
-						}
-
-						@Override
-						public void keyTyped(KeyEvent arg0) {
-							// TODO Auto-generated method stub
-							
-						}
-						
-						
-						
-					});
-					*/
+					
 				}
 				
 			}
