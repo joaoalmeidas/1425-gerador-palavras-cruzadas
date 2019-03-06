@@ -130,7 +130,7 @@ public class PalavrasCruzadas {
 			
 			for(int j = 0; j < getQuadriculado()[i].length; j++) {
 				
-				if(getQuadriculado()[i][j] != charJogo[i][j]) {
+				if(getQuadriculado()[i][j] != Character.toLowerCase(charJogo[i][j])) {
 					
 					return false;
 					

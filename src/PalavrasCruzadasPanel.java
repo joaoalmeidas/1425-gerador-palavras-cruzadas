@@ -144,7 +144,8 @@ public class PalavrasCruzadasPanel extends JPanel {
 				
 			}
 			
-			if(getRespostaQuadriculado()[i][j] == palavraCruzada.getQuadriculado()[i][j]) {
+			if(getRespostaQuadriculado()[i][j] == palavraCruzada.getQuadriculado()[i][j] || 
+					getRespostaQuadriculado()[i][j] == Character.toUpperCase(palavraCruzada.getQuadriculado()[i][j])) {
 				
 				getQuadriculado()[i][j].setEditable(false);
 				getQuadriculado()[i][j].setFocusable(false);
