@@ -1,25 +1,29 @@
 
 public class PalavrasCruzadas {
 	
+	
+	
 	private BancoDeDados banco = new BancoDeDados();
 	private char[][] quadriculado;
 	private String[][] dicas;
 	private int indicePalavraCentral;
 	
-	
+	//Construtor da classe PalavrasCruzadas
 	public PalavrasCruzadas() {
 		
 		banco.conectar();
 		
+		//Seleção das palavras
 		String[][] palavras = banco.selecionaPalavras();
 		String palavraCentral = palavras[0][1];
 		
 		
+		//Seleção dos significados das palavras
+		dicas = banco.selecionaDicas(palavras);
 		
 		int esquerda = 0, direita = 0;
 		
-		dicas = banco.selecionaDicas(palavras);
-		
+		//Laço de repetição usado para saber qual deverá ser a dimensão do array de chars
 		for(int i = 0; i < palavraCentral.length(); i++) {
 			
 			if(palavras[i+1][1].substring(0, palavras[i+1][1].lastIndexOf(palavraCentral.charAt(i))).length() > esquerda) {
@@ -36,17 +40,19 @@ public class PalavrasCruzadas {
 				
 		}
 		
+		//Localização do caractere da palavra principal na primeira palavra na posição horizontal
 		indicePalavraCentral = esquerda + 1;
 
 		quadriculado = new char[palavraCentral.length()][esquerda + direita];
 		
-		
+		//Preenchimento do array de chars no sentido vertical com a palavra principal
 		for(int i = 0; i < palavraCentral.length(); i++) {
 			
 			quadriculado[i][esquerda] = palavraCentral.charAt(i);
 			
 		}
 		
+		//Preenchimento do array de chars no sentido horizontal com o restante das palavras.
 		for(int i = 0; i < palavraCentral.length(); i++) {
 			
 			String stringEsquerda = palavras[i+1][1].substring(0, palavras[i+1][1].lastIndexOf(palavraCentral.charAt(i)));
@@ -67,6 +73,7 @@ public class PalavrasCruzadas {
 			
 		}
 		
+		//Exibição no console do array de char já preenchido com as palavras selecionadas anteriormente
 		for(int i = 0; i < quadriculado.length; i++) {
 			
 			for(int j = 0; j < quadriculado[0].length; j++) {
@@ -123,6 +130,7 @@ public class PalavrasCruzadas {
 		this.indicePalavraCentral = indicePalavraCentral;
 	}
 	
+	//Método boolean que retorna se o jogador completou corretamente as palavras.
 	public boolean ganhouJogo(char[][] charJogo) {
 		
 		for(int i = 0; i < getQuadriculado().length; i++) {

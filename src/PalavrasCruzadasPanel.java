@@ -19,21 +19,29 @@ public class PalavrasCruzadasPanel extends JPanel {
 	private char[][] respostaQuadriculado;
 	private JButton[] botoesDicas;
 	
+	//Classe JPanel que exibe o quadriculado que usuário irá preencher
 	public PalavrasCruzadasPanel() {
 		
-		
 		palavraCruzada = new PalavrasCruzadas();
+		
+		//Array de JTextFields com as mesmas dimensões do array Quadriculado da classe PalavraCruzadas
 		quadriculado = new JTextField[palavraCruzada.getQuadriculado().length][palavraCruzada.getQuadriculado()[0].length];
 		respostaQuadriculado = new char[palavraCruzada.getQuadriculado().length][palavraCruzada.getQuadriculado()[0].length];
+		
+		//Array de JButtons que ao serem acionados exibirão
 		botoesDicas = new JButton[palavraCruzada.getDicas().length];
 		
+		//GridLayout do JPanel definido com as mesmas dimensões do atributo quadriculado da classe PalavraCruzada
 		GridLayout layout = new GridLayout(palavraCruzada.getQuadriculado().length + 1, palavraCruzada.getQuadriculado()[0].length + 1);
 		setLayout(layout);
 		
+		
+		//Primeira linha do quadriculado
 		for(int i = 0; i < quadriculado[0].length + 1; i++) {
 			
 			if(i == palavraCruzada.getIndicePalavraCentral()) {
 				
+				//instanciação do primeiro JButton das dicas
 				botoesDicas[0] = new JButton("1");
 				add(botoesDicas[0]);
 				
@@ -45,14 +53,19 @@ public class PalavrasCruzadasPanel extends JPanel {
 			
 		}
 		
+		//demais linhas do quadriculado
 		for(int i = 0; i < quadriculado.length; i++) {
 			
-			
+			//instanciação dos demais JButton das dicas
 			botoesDicas[i+1] = new JButton(String.format("%d", i+2));
 			add(botoesDicas[i+1]);
 			
+			
+			//Laço de repetição que instancia e adiciona os JTextfields ao JPanel
 			for(int j = 0; j < quadriculado[0].length; j++) {
 				
+				
+				//se o char no array quadriulado for um char válido, é instanciado um JTextField
 				if(Character.isLetterOrDigit(palavraCruzada.getQuadriculado()[i][j]) || palavraCruzada.getQuadriculado()[i][j] == '.' 
 						|| palavraCruzada.getQuadriculado()[i][j] == '-') {
 					
@@ -73,6 +86,7 @@ public class PalavrasCruzadasPanel extends JPanel {
 			
 		}
 		
+		//Laço de repetição que adiciona um ActionListerner para cada JButton, que exibirá uma janela com a dica para palavra.
 		for(int i = 0; i < botoesDicas.length; i++) {
 			
 			botoesDicas[i].addActionListener(new DicasHandler(i, palavraCruzada.getDicas()[i][1]));
@@ -82,7 +96,8 @@ public class PalavrasCruzadasPanel extends JPanel {
 		
 		
 	}
-		
+	
+	//Classe ActionListener que é usada para exibir as dicas
 	private class DicasHandler implements ActionListener{
 		
 		private int i;
@@ -104,7 +119,7 @@ public class PalavrasCruzadasPanel extends JPanel {
 		
 	}
 	
-	
+	//Classe KeyListener que é usada para modificar visualmente os JTextFields
 	private class QuadriculadoHandler implements KeyListener{
 		
 		private int i;
@@ -156,12 +171,8 @@ public class PalavrasCruzadasPanel extends JPanel {
 
 		@Override
 		public void keyTyped(KeyEvent arg0) {
-			
-
-			
+					
 		}
-		
-		
 		
 	}
 	
@@ -189,10 +200,6 @@ public class PalavrasCruzadasPanel extends JPanel {
 	public void setRespostaQuadriculado(char[][] respostaQuadriculado) {
 		this.respostaQuadriculado = respostaQuadriculado;
 	}
-	
-	
-	
-	
 	
 }
 
