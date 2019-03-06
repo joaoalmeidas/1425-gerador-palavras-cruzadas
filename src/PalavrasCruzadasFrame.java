@@ -44,7 +44,6 @@ public class PalavrasCruzadasFrame extends JFrame {
 		tituloPanel.add(labelTitulo);
 
 		botoesPanel.add(botaoIniciar);
-		//botoesPanel.add(botaoReiniciar);
 		
 		controlePanel.add(tituloPanel);
 		controlePanel.add(botoesPanel);
@@ -92,18 +91,12 @@ public class PalavrasCruzadasFrame extends JFrame {
 								public void focusLost(FocusEvent arg0) {
 									
 									if(palavrasPanel.getPalavraCruzada().ganhouJogo(palavrasPanel.getRespostaQuadriculado())) {
-										
-										System.out.println("sim");
-										
+
 										botoesPanel.add(botaoReiniciar);
 										
 										validate();
 										palavrasPanel.repaint();
 										repaint();
-										
-									}else {
-										
-										System.out.println("não");
 										
 									}
 									
@@ -142,17 +135,11 @@ public class PalavrasCruzadasFrame extends JFrame {
 							
 							if(palavrasPanel.getPalavraCruzada().ganhouJogo(palavrasPanel.getRespostaQuadriculado())) {
 								
-								System.out.println("sim");
-								
 								botoesPanel.add(botaoReiniciar);
 								
 								validate();
 								palavrasPanel.repaint();
 								repaint();
-								
-							}else {
-								
-								System.out.println("não");
 								
 							}
 							

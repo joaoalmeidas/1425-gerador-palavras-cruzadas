@@ -22,7 +22,6 @@ public class PalavrasCruzadasPanel extends JPanel {
 	public PalavrasCruzadasPanel() {
 		
 		
-		
 		palavraCruzada = new PalavrasCruzadas();
 		quadriculado = new JTextField[palavraCruzada.getQuadriculado().length][palavraCruzada.getQuadriculado()[0].length];
 		respostaQuadriculado = new char[palavraCruzada.getQuadriculado().length][palavraCruzada.getQuadriculado()[0].length];
@@ -140,7 +139,6 @@ public class PalavrasCruzadasPanel extends JPanel {
 			if(!quadriculado[i][j].getText().equals("")) {
 				
 				getRespostaQuadriculado()[i][j] = getQuadriculado()[i][j].getText().charAt(0);
-				System.out.println(getRespostaQuadriculado()[i][j]);
 				
 			}
 			
@@ -167,8 +165,6 @@ public class PalavrasCruzadasPanel extends JPanel {
 		
 	}
 	
-	
-
 
 	public PalavrasCruzadas getPalavraCruzada() {
 		return palavraCruzada;
