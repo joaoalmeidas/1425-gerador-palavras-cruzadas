@@ -9,3 +9,5 @@ O programador precisa de uma fonte de palavras (isto é, um dicionário computad
 aplicativo. De que forma essas palavras devem ser armazenadas para facilitar as complexas manipulações requeridas pelo aplicativo?
 Se você for realmente ambicioso, vai querer gerar a parte de pistas do quebra-cabeça, em que breves dicas para palavras na horizontal
 e na vertical são impressas. Meramente imprimir uma versão da parte em branco do jogo não é um problema simples.
+
+BD do diciionário: http://dicionario-aberto.net/
