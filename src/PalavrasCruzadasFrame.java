@@ -42,7 +42,7 @@ public class PalavrasCruzadasFrame extends JFrame {
 		botaoIniciar = new JButton("Iniciar");
 		botaoReiniciar = new JButton("Reiniciar");
 		
-		labelTitulo = new JLabel("Palavras Cruzadas");
+		labelTitulo = new JLabel("Palavras Cruzadas do Dicionário Aberto de 1914");
 		labelTitulo.setFont(new Font("Arial", Font.BOLD, 45));
 		
 		tituloPanel.add(labelTitulo);
