@@ -20,12 +20,6 @@ public class BancoDeDados {
 		String senha = "1974532918643";
 		String driver = "com.mysql.cj.jdbc.Driver";
 		
-		/*
-		String servidor = "jdbc:mysql://localhost:3306/dicionario?useTimezone=true&serverTimezone=UTC";
-		String usuario = "root";
-		String senha = "joao2293";
-		String driver = "com.mysql.cj.jdbc.Driver";
-		*/
 		
 		try {
 			

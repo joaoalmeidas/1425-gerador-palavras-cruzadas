@@ -73,19 +73,6 @@ public class PalavrasCruzadas {
 			
 		}
 		
-		//Exibição no console do array de char já preenchido com as palavras selecionadas anteriormente
-		for(int i = 0; i < quadriculado.length; i++) {
-			
-			for(int j = 0; j < quadriculado[0].length; j++) {
-				
-				System.out.printf("%c", quadriculado[i][j]);
-				
-			}
-			
-			System.out.println();
-			
-		}
-		
 		banco.desconectar();
 
 	}
