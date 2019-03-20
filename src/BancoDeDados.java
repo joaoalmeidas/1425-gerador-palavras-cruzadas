@@ -15,10 +15,17 @@ public class BancoDeDados {
 		
 		//conexão com o banco de dados
 		
+		String servidor = "jdbc:mysql://db4free.net:3306/dicionario";
+		String usuario = "jgalmeidast";
+		String senha = "1974532918643";
+		String driver = "com.mysql.cj.jdbc.Driver";
+		
+		/*
 		String servidor = "jdbc:mysql://localhost:3306/dicionario?useTimezone=true&serverTimezone=UTC";
 		String usuario = "root";
 		String senha = "joao2293";
 		String driver = "com.mysql.cj.jdbc.Driver";
+		*/
 		
 		try {
 			
@@ -179,8 +186,7 @@ public class BancoDeDados {
 		
 		
 	}
-	
-	
+		
 	public void desconectar() {
 		
 		try {
